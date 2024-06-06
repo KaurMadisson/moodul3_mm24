@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Dynamic Prophets - Sticker</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem;
+      background-color: black;
+      z-index: 10;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-text {
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      position: absolute;
+      z-index: 15;
+      left: 41%;
+      list-style: none;
+    }
+
+    .nav-link {
+      margin-right: 1.5rem;
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-link:hover {
+      color: #d4d4d4;
+    }
+
+    .cart {
+      display: flex;
+      align-items: center;
+    }
+
+    .cart-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: color 0.3s;
+      z-index: 10;
+    }
+
+    .cart-button:hover {
+      color: #d4d4d4;
+    }
+
+    .cart-img {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 3;
+    }
+
+    .flex {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      gap: 1rem;
+      padding: 1rem;
+      overflow-x: auto;
+    }
+
+    .w-48 {
+      width: 19rem;
+      flex: 1 1 auto;
+      z-index: 7;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      object-cover: cover;
+    }
+
+    .bg-blue-500 {
+      background-color: #3b82f6;
+    }
+
+    .text-white {
+      color: #ffffff;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .py-2 {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .shop-text {
+      position: absolute;
+      top: 115%;
+      left: 20px;
+      transform: translateY(-50%);
+      color: #0071B7;
+      font-size: 32px;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 0 20px;
+      z-index: 2;
+    }
+
+    .footer {
+      background-color: black;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 50px;
+      width: 100%;
+      position: fixed;
+      bottom: -100px;
+      left: 0;
+      transition: bottom 0.3s ease;
+      z-index: 1000;
+    }
+
+    .footer-logo img {
+      height: 50px;
+      width: auto;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: #d4d4d4;
+    }
+
+    .container {
+      display: flex;
+      padding: 20px;
+    }
+
+    .box {
+      width: 746px;
+      height: 658px;
+      background-color: #f0f0f0;
+      margin-right: 20px;
+    }
+
+    .box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .text-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      color: #0071B7;
+      font-size: 1.5rem;
+    }
+
+    .text-content p {
+      margin: 0;
+      padding-top: 10px;
+    }
+
+    .info-text, .blue-text {
+      font-size: 2rem; /* Make Info and blue text bigger */
+    }
+
+    .black-text {
+      color: black;
+    }
+
+    .blue-text {
+      color: #0071B7;
+      margin-top: 50px; /* Increased margin-top to place the blue text lower */
+    }
+
+    .rectangle-container {
+      display: flex;
+      gap: 10px;
+      margin-top: 80px; /* Increased margin-top to move the rectangles lower */
+    }
+
+    .rectangle {
+      width: 26px;
+      height: 27px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .black-rectangle {
+      background-color: black;
+    }
+
+    .white-rectangle {
+      background-color: white;
+    }
+
+    .size-guide {
+      display: none;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+    }
+
+    .size-guide h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .size-guide ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .size-option {
+      margin-bottom: 10px;
+    }
+
+    .button-container {
+      margin-top: 100px; /* Add margin between rectangles and button */
+    }
+
+    .add-to-cart {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 167px;
+    }
+
+    .blue-rectangle {
+      width: 816px;
+      height: 96px;
+      background-color: #3b82f6; /* Blue color */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .white-text {
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    
+    .white-space-rectangle {
+      height: 200px; /* Adjust the height as needed */
+      background-color: white;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="Logo" class="logo-img">
+      <span class="logo-text"></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li> <!-- Link to Home page -->
+      <li><a href="shop.html" class="nav-link">Shop</a></li> <!-- Link to Shop page -->
+      <li><a href="#" class="nav-link" id="history-link">History</a></li> <!-- Link to History -->
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="cart">
+      <button class="cart-button">
+        <img src="cart.png" alt="Cart" class="cart-img">
+      </button>
+    </div>
+  </nav>
+  <div class="white-space-rectangle"></div>
+  <div class="container">
+    <div class="box">
+      <img src="kleeps.png" alt="Sticker Image">
+    </div>
+    <div class="text-content">
+      <p class="info-text">Sticker Info</p> <!-- Info text larger -->
+      <p class="black-text">Our stickers are made from durable vinyl with a premium finish. Perfect for personalizing your laptop, notebook, or any other surface.</p> <!-- Black text -->
+      
+      <p class="blue-text">Available in various designs and sizes.</p> <!-- New blue text, same size as info text, positioned lower -->
+      <div class="rectangle-container">
+        <div class="rectangle black-rectangle"></div>
+        <div class="rectangle white-rectangle"></div>
+      </div>
+      <div class="button-container">
+        <!-- Button to toggle size guide -->
+        <button onclick="toggleSizeGuide()">Show Size Guide</button>
+      </div>
+      <!-- Size guide box -->
+      <div class="size-guide" id="sizeGuide">
+        <h2>Size Guide</h2>
+        <ul>
+          <li class="size-option">Small</li>
+          <li class="size-option">Medium</li>
+          <li class="size-option">Large</li>
+          <li class="size-option">Extra Large</li>
+        </ul>
+      </div>
+      <div class="add-to-cart">
+        <div class="blue-rectangle">
+          <span class="white-text">$9.99 - Add to Cart</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="white-space-rectangle"></div>
+  <footer id="footer" class="footer">
+    <div class="footer-logo">
+      <img src="logo.png" alt="Footer Logo">
+    </div>
+    <div class="footer-links">
+        <a href="#"style="margin-right: 700px;">Privacy & Policy</a>
+        <a href="#" style="margin-right: 80px;">Terms & Conditions</a> <!-- Adjusted margin -->
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('history-link').addEventListener('click', function(event) {
+      event.preventDefault();
+      window.location.href = 'index.html#match-history';
+    });
+    function toggleSizeGuide() {
+      var sizeGuide = document.getElementById('sizeGuide');
+      if (sizeGuide.style.display === 'none') {
+        sizeGuide.style.display = 'block';
+      } else {
+        sizeGuide.style.display = 'none';
+      }
+    }
+
+    window.addEventListener('scroll', function() {
+      var footer = document.getElementById('footer');
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        footer.style.bottom = '0';
+      } else {
+        footer.style.bottom = '-100px';
+      }
+    });
+  </script>
+</body>
+</html>

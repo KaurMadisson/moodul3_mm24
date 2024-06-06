@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles1.css">
+  <style>
+    /* General Styles */
+    .box-container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .box-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      width: 30%;
+    }
+
+    .box {
+      position: relative;
+      margin: 20px;
+      padding: 10px;
+      border: 1px solid #000;
+      overflow: hidden;
+      background-color: #fff;
+    }
+
+    .box img {
+      width: 100%;
+      height: auto;
+    }
+
+    .caption {
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+  <title>Dynamic Prophets</title>
+</head>
+<body>
+  <div class="hero">
+    <nav class="navbar">
+      <div class="logo">
+        <img src="logo.png" alt="Logo" class="logo-img">
+        <span class="logo-text"></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li> <!-- Link to Home page -->
+        <li><a href="shop.html" class="nav-link">Shop</a></li> <!-- Link to Shop page -->
+        <li><a href="#" class="nav-link" id="history-link">History</a></li> <!-- Link to History -->
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="cart">
+        <button class="cart-button">
+          <img src="cart.png" alt="Cart" class="cart-img">
+        </button>
+      </div>
+    </nav>
+    <!-- Semi-transparent overlay -->
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="line2">Welcome to our shop!</span>
+      </h1>
+      <button class="hero-button">Our merch</button>
+      <div class="arrow">
+        <img src="arrow.png" alt="Arrow Down" class="arrow-img">
+      </div>
+    </div>
+  </div>
+  <div class="white-space-rectangle"></div>
+  <div class="shop-text">Shop</div> <!-- Shop text -->
+  <div class="white-space-rectangle"></div>
+  <!-- Boxes with Images -->
+  <div class="box-container">
+    <a href="product1.html" class="box-link">
+      <div class="box">
+        <div class="black-rectangle"></div> <!-- Black rectangle for Box 1 -->
+        <img src="kleeps.png" alt="Sticker Image">
+        <div class="caption">STICKER</div>
+      </div>
+    </a>
+    <a href="product.html" class="box-link">
+      <div class="box">
+        <div class="black-rectangle"></div> <!-- Black rectangle for Box 2 -->
+        <img src="särk.png" alt="T-Shirt Image">
+        <div class="caption">T-SHIRT</div>
+      </div>
+    </a>
+    <a href="product2.html" class="box-link">
+      <div class="box">
+        <div class="black-rectangle"></div> <!-- Black rectangle for Box 3 -->
+        <img src="hiir.png" alt="Mouse Image">
+        <div class="caption">MOUSE</div>
+      </div>
+    </a>
+  </div>
+  <div class="white-space-rectangle"></div>
+  <!-- Large Box -->
+  <div class="large-box-container">
+    <a href="product3.html" class="large-box-link">
+      <div class="large-box">
+        <div class="black-rectangle"></div> <!-- Black rectangle for Large Box -->
+        <img src="kruus.png" alt="Cup Image">
+        <div class="caption">CUPS</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="white-space-rectangle"></div>
+  <div class="white-space-rectangle"></div>
+  <!-- Footer Section -->
+  <div class="footer" id="footer">
+    <div class="footer-logo">
+      <img src="logo.png" alt="Logo" class="logo-img">
+    </div>
+    
+    <div class="footer-links">
+        <a href="#"style="margin-right: 700px;">Privacy & Policy</a>
+        <a href="#" style="margin-right: 80px;">Terms & Conditions</a> <!-- Adjusted margin -->
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('history-link').addEventListener('click', function(event) {
+      event.preventDefault();
+      window.location.href = 'index.html#match-history';
+    });
+
+    window.addEventListener('scroll', function() {
+      var footer = document.getElementById('footer');
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        footer.style.bottom = '0'; // Show footer
+      } else {
+        footer.style.bottom = '-100px'; // Hide footer
+      }
+    });
+  </script>
+</body>
+</html>

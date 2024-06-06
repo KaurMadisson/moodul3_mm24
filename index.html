@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Dynamic Prophets - Home</title>
+  <style>
+    .game-container {
+      display: flex;
+      justify-content: center;
+      margin: -500px 250px 0; /* Added top margin */
+    }
+    .footer {
+      background-color: black;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 50px;
+      width: 100%;
+      position: fixed;
+      bottom: -100px; /* Hide footer initially */
+      transition: bottom 0.3s; /* Smooth transition */
+    }
+    .footer a {
+      color: white;
+      margin: 0 270px;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    .footer-links {
+      margin-left: auto; /* Move terms & conditions link to the right */
+    }
+    .nav-link {
+      color: white;
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .nav-link:hover {
+      color: #d4d4d4;
+    }
+
+     /* Responsive adjustments */
+     @media (max-width: 375px) {
+      .navbar {
+        padding: 0.75rem; /* Adjust navbar padding */
+      }
+      .logo {
+        margin-left: 0.5rem; /* Adjust logo margin */
+      }
+      .hero-content {
+        padding: 1rem; /* Adjust hero content padding */
+      }
+      .hero-title {
+        font-size: 1.5rem; /* Adjust hero title font size */
+      }
+      .hero-button {
+        font-size: 0.75rem; /* Adjust hero button font size */
+        padding: 0.5rem 1rem; /* Adjust hero button padding */
+      }
+      .arrow {
+        margin-top: 0.5rem; /* Adjust arrow margin top */
+      }
+      .game-container {
+        margin: -200px 0 0; /* Adjust game container margin */
+      }
+      .footer {
+        padding: 5px 10px; /* Adjust footer padding */
+        margin: 0; /* Reset margin */
+      }
+      .footer a {
+        margin: 0 5px; /* Adjust footer link margin */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <nav class="navbar">
+      <div class="logo">
+        <img src="logo.png" alt="Logo" class="logo-img">
+        <span class="logo-text"></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li> <!-- Link to Home page -->
+        <li><a href="shop.html" class="nav-link">Shop</a></li> <!-- Link to Shop page -->
+        <li><a href="#" class="nav-link" id="history-link">History</a></li> <!-- Link to History -->
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="cart">
+        <button class="cart-button">
+          <img src="cart.png" alt="Cart" class="cart-img">
+        </button>
+      </div>
+    </nav>
+    <!-- Semi-transparent overlay -->
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="line1">Rise Above</span><br>
+        <span class="line2">Conquer the Digital Battlefield</span>
+      </h1>
+      <button class="hero-button">Meet our team</button>
+      <div class="arrow">
+        <img src="arrow.png" alt="Arrow Down" class="arrow-img">
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-wrap justify-center gap-4 p-4">
+    <div class="w-48">
+      <img
+        src="1.png"
+        alt="Blaze"
+        class="w-full h-auto object-cover"
+      />
+      <div class="bg-blue-500 text-white text-center py-2">Blaze</div>
+    </div>
+    <div class="w-48">
+      <img
+        src="2.png"
+        alt="Phantom"
+        class="w-full h-auto object-cover"
+      />
+      <div class="bg-blue-500 text-white text-center py-2">Phantom</div>
+    </div>
+    <div class="w-48">
+      <img
+        src="3.png"
+        alt="Vortex"
+        class="w-full h-auto object-cover"
+      />
+      <div class="bg-blue-500 text-white text-center py-2">Vortex</div>
+    </div>
+    <div class="w-48">
+      <img
+        src="4.png"
+        alt="Titan"
+        class="w-full h-auto object-cover"
+      />
+      <div class="bg-blue-500 text-white text-center py-2">Titan</div>
+    </div>
+    <div class="w-48">
+      <img
+        src="5.png"
+        alt="Echo"
+        class="w-full h-auto object-cover"
+      />
+      <div class="bg-blue-500 text-white text-center py-2">Echo</div>
+    </div>
+  </div>
+  <div class="flex items-center justify-center">
+    <img
+      src="arrow_left.png"
+      alt="Left Arrow"
+      class="arrow-img text-blue-500 hover:text-blue-700"
+    >
+    <div class="game-container">
+      <div class="flex overflow-x-auto space-x-4 mx-4">
+        <img
+          class="w-48 h-auto object-cover"
+          src="game1.jpg"
+          alt="League of Legends"
+        />
+        <img class="w-48 h-auto object-cover" src="game2.webp" alt="Counter Strike" />
+        <img
+          class="w-48 h-auto object-cover"
+          src="game3.jpg"
+          alt="Rainbow Six Siege"
+        />
+        <img class="w-48 h-auto object-cover" src="valorant.avif" alt="Valorant" />
+      </div>
+    </div>
+    <img
+      src="arrow_right.png"
+      alt="Right Arrow"
+      class="arrow-img text-blue-500 hover:text-blue-700"
+    >
+  </div>
+  
+  <!-- Adding new image -->
+  <div class="flex justify-center mt-8">
+    <img id="match-history" src="match history.png" alt="New Image" class="w-48 h-auto object-cover">
+  </div>
+
+  <!-- Footer Section -->
+  <div class="footer" id="footer">
+    <div class="footer-logo">
+      <img src="logo.png" alt="Logo" class="logo-img">
+    </div>
+    <div class="footer-links">
+      <a href="#" style="margin-right: 460px;">Privacy & Policy</a>
+      <a href="#" style="margin-right: 80px;">Terms & Conditions</a> <!-- Adjusted margin -->
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('history-link').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.getElementById('match-history').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', function() {
+      var footer = document.getElementById('footer');
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        footer.style.bottom = '0'; // Show footer
+      } else {
+        footer.style.bottom = '-100px'; // Hide footer
+      }
+    });
+
+    // Check if URL contains #match-history and scroll to it if present
+    if (window.location.hash === '#match-history') {
+      document.getElementById('match-history').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
